@@ -1,16 +1,16 @@
-import express from "express"
-import pizzaRoutes from "./src/routes/pizza.js"
-import branchRoutes from "./src/routes/branches.js"
-import employeeRoutes from "./src/routes/employees.js"
-import reviewRoutes from "./src/routes/reviews.js"
-import customerRoutes from "./src/routes/customer.js"
-import registerCustomerRoutes from "./src/routes/registerCustomer.js"
-import registerEmployeeRoutes from "./src/routes/registerEmployee.js"
-import loginCustomersRoutes from "./src/routes/loginCustomer.js"
-import logoutRoutes from "./src/routes/logout.js"
+import express from "express";
+import pizzaRoutes from "./src/routes/pizza.js";
+import branchRoutes from "./src/routes/branches.js";
+import employeeRoutes from "./src/routes/employees.js";
+import reviewRoutes from "./src/routes/reviews.js";
+import customerRoutes from "./src/routes/customer.js";
+import registerCustomerRoutes from "./src/routes/registerCustomer.js";
+import registerEmployeeRoutes from "./src/routes/registerEmployee.js";
+import loginCustomersRoutes from "./src/routes/loginCustomer.js";
+import logoutRoutes from "./src/routes/logout.js";
 import cors from "cors";
-
-import cookieParser from "cookie-parser"
+import recoveryPasswordRouter from "./src/routes/recoveryPasswordCotroller.js";
+import cookieParser from "cookie-parser";
 
 //creo una constante app que es una instancia de express, esto me permite usar todas las funcionalidades de express para crear mi servidor y manejar rutas, middlewares, etc.
 
@@ -29,12 +29,14 @@ app.use("/api/registerCustomer", registerCustomerRoutes);
 app.use("/api/registerEmployee", registerEmployeeRoutes);
 app.use("/api/loginCustomers", loginCustomersRoutes);
 app.use("/api/logout", logoutRoutes);
-app.use(cors({
+app.use("/api/registerCustomer", registerCustomerRoutes);
+app.use("/api/recoveryPassword", recoveryPasswordRouter);
+app.use(
+  cors({
     origin: ["http://localhost:5173", "http://localhost:5174"],
 
-    credentials: true
-    
-}));
-
+    credentials: true,
+  }),
+);
 
 export default app;
