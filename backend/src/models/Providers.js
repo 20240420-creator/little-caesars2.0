@@ -1,5 +1,5 @@
 import {Schema, model} from "mongoose";
-const providerSchema = new Schemea ({
+const providerSchema = new Schema ({
     name: {type: String},
     phone: {type: String},
     image: {type: String},

@@ -1,5 +1,5 @@
-import Providers from "../models/Providers";
-import providersModel from "../models/Providers"
+import providersModel from "../models/Providers.js";
+
 
 import {v2 as cloudinary} from "cloudinary";
 
@@ -88,4 +88,4 @@ providerController.deleteProvider = async (req, res) =>{
     }
 };
 
-export default providerController 
+export default providerController ;
